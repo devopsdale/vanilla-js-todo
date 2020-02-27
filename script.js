@@ -23,7 +23,6 @@ function newTodo() {
   var form = document.createElement('form');
   var checkbox = document.createElement('input');  //create the texbox html
   checkbox.type = "checkbox";  //attributes of the checkbox
-  //checkbox.name = "type" + itemcount; //attributes of the checkbox
   checkbox.id = itemcount;
   checkbox.value = itemcount;
   checkbox.onclick = checked ;
@@ -33,32 +32,8 @@ function newTodo() {
   node.appendChild(listitem)
   document.getElementById("todo-list").appendChild(node)
   document.getElementById("item-count").innerText=itemcount
-
-  let box = event.target;
-  //console.log(box.id)
-  //console.log(checkbox.checked)
+  checked()
 }
-
-
-
-
-// function checked(event) { 
-//   let checkbox = event.target;
-//   console.log("+++++++++")
-//   console.log(checkbox)
-//   console.log("-----")
-//   for(i=0; i <= todoList.length; i++){
-//       let name = "box"+i
-//       //let box = document.getElementById('todo-list').getElementsByTagName('input');
-//       let box = document.getElementById(i)
-//       //console.log(box[i])
-//       console.log(box)
-//       // if (box.checked){
-//       //   alert("box checked")
-//       // }
-//   }
-  
-// }
 
 function checked() { 
   console.log(getTotal())
@@ -68,15 +43,12 @@ function checked() {
 
 
 function getTotal(){
-
   let checkarr = document.getElementsByTagName("input")  
   let total = 0 
   for (i =0; i < checkarr.length; i++){
-    
     if (checkarr[i].type == 'checkbox' && checkarr[i].checked === false) {
       total++
     }
-
   }
   return total
 }
